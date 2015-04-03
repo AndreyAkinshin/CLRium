@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), dir.props))\dir.props" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{53134B0C-0D57-481B-B84E-D1991E8D54FF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Numerics</RootNamespace>
+    <AssemblyName>System.Numerics.Vectors</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <DocumentationFile>$(OutputPath)System.Numerics.Vectors.xml</DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <!-- Default configurations to help VS understand the configurations -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <!-- References are resolved from packages.config -->
+  <ItemGroup>
+    <Compile Include="System\Numerics\ConstantHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConstantHelper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="System\Numerics\HashCodeHelper.cs" />
+    <Compile Include="System\Numerics\JitIntrinsicAttribute.cs" />
+    <Compile Include="System\Numerics\Matrix3x2.cs" />
+    <Compile Include="System\Numerics\Matrix4x4.cs" />
+    <Compile Include="System\Numerics\Plane.cs" />
+    <Compile Include="System\Numerics\Quaternion.cs" />
+    <Compile Include="System\Numerics\Register.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Register.tt</DependentUpon>
+    </Compile>
+    <Compile Include="System\Numerics\Vector.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Vector.tt</DependentUpon>
+    </Compile>
+    <Compile Include="System\Numerics\Vector2.cs" />
+    <Compile Include="System\Numerics\Vector2_Intrinsics.cs" />
+    <Compile Include="System\Numerics\Vector3.cs" />
+    <Compile Include="System\Numerics\Vector3_Intrinsics.cs" />
+    <Compile Include="System\Numerics\Vector4.cs" />
+    <Compile Include="System\Numerics\Vector4_Intrinsics.cs" />
+    <Compile Include="System\Numerics\Vector_Operations.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="System\Numerics\ConstantHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ConstantHelper.cs</LastGenOutput>
+    </None>
+    <None Include="System\Numerics\GenerationConfig.ttinclude" />
+    <None Include="System\Numerics\Register.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Register.cs</LastGenOutput>
+    </None>
+    <None Include="System\Numerics\Vector.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Vector.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), dir.targets))\dir.targets" />
+</Project>

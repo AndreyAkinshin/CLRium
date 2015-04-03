@@ -1,0 +1,44 @@
+1. Заставляем JIT собирать и выводить внутреннюю статистику. Для этого открываем файл coreclr\src\jit\jit.h и меням строчки 
+
+#define CALL_ARG_STATS      0   // Collect stats about calls and call arguments.
+#define COUNT_BASIC_BLOCKS  0   // Create a histogram of basic block sizes, and a histogram of IL sizes in the simple case of single block methods.
+#define COUNT_LOOPS         0   // Collect stats about loops, such as the total number of natural loops, a histogram of the number of loop exits, etc.
+#define COUNT_RANGECHECKS   0   // Count range checks removed (in lexical CSE?).
+#define DATAFLOW_ITER       0   // Count iterations in lexical CSE and constant folding dataflow.
+#define DISPLAY_SIZES       0   // Display generated code, data, and GC information sizes.
+#define MEASURE_BLOCK_SIZE  0   // Collect stats about basic block and flowList node sizes and memory allocations.
+#define MEASURE_FATAL       0   // Count the number of calls to fatal(), including NYIs and noway_asserts.
+#define MEASURE_INLINING    0   // Collect various stats about inlining.
+#define MEASURE_NODE_SIZE   0   // Collect stats about GenTree node allocations.
+#define MEASURE_PTRTAB_SIZE 0   // Collect stats about GC pointer table allocations.
+
+на
+
+#define CALL_ARG_STATS      1   // Collect stats about calls and call arguments.
+#define COUNT_BASIC_BLOCKS  1   // Create a histogram of basic block sizes, and a histogram of IL sizes in the simple case of single block methods.
+#define COUNT_LOOPS         1   // Collect stats about loops, such as the total number of natural loops, a histogram of the number of loop exits, etc.
+#define COUNT_RANGECHECKS   1   // Count range checks removed (in lexical CSE?).
+#define DATAFLOW_ITER       1   // Count iterations in lexical CSE and constant folding dataflow.
+#define DISPLAY_SIZES       1   // Display generated code, data, and GC information sizes.
+#define MEASURE_BLOCK_SIZE  1   // Collect stats about basic block and flowList node sizes and memory allocations.
+#define MEASURE_FATAL       1   // Count the number of calls to fatal(), including NYIs and noway_asserts.
+#define MEASURE_INLINING    1   // Collect various stats about inlining.
+#define MEASURE_NODE_SIZE   1   // Collect stats about GenTree node allocations.
+#define MEASURE_PTRTAB_SIZE 1   // Collect stats about GC pointer table allocations.
+
+Потестировать можно на программе HelloWorldAndLoops.cs
+В конце хорошо бы вернуть константы на место и собрать оригинальное ядро.
+
+2. Вытащить полезную информацию из JIT-а можно также с помощью COMPLUS_ переменных. Список переменных можно найти в d:\Work\GitHub\coreclr\src\inc\clrconfigvalues.h
+Самые весёлые:
+SET COMPLUS_JitDump=*
+SET COMPLUS_JitDisasm=*
+
+3. А ещё можно узнать много нового про GC, если выставить:
+SET COMPLUS_LogEnable=1
+SET COMPLUS_LOGLEVEL=6
+SET COMPLUS_LogToFile=1
+SET COMPLUS_LogFile=log.txt
+SET COMPLUS_LOGFACILITY=1
+
+Значения COMPLUS_LOGFACILITY смотри в файле d:\Work\GitHub\coreclr\src\inc\loglf.h
