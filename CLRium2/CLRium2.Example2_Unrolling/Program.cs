@@ -1,6 +1,5 @@
-﻿using System;
-using BenchmarkDotNet;
-using CLRium2.Utils;
+﻿using BenchmarkDotNet;
+using BenchmarkDotNet.Tasks;
 
 namespace CLRium2.Example2_Unrolling
 {
@@ -21,31 +20,28 @@ namespace CLRium2.Example2_Unrolling
     //        Foo(i + 3);
     //    }
 
-    public class UnrollBenchmarkCompetition : BenchmarkCompetition
+    [Task(1, platform: BenchmarkPlatform.X86, jitVersion: BenchmarkJitVersion.LegacyJit)]
+    [Task(1, platform: BenchmarkPlatform.X64, jitVersion: BenchmarkJitVersion.LegacyJit)]
+    public class UnrollBenchmarkCompetition
     {
-        private const int IterationCount = 10001, N = 100001;
+        private const int N = 1001;
         private readonly int[] a = new int[N];
 
-        [BenchmarkMethod]
+        [Benchmark]
         public int Method1()
         {
             int sum = 0;
-            for (int iteration = 0; iteration < IterationCount; iteration++)
-                for (int i = 0; i < N; i++)
-                    sum += a[i];
+            for (int i = 0; i < N; i++)
+                sum += a[i];
             return sum;
         }
 
-        [BenchmarkMethod]
+        [Benchmark]
         public int Method2()
         {
             int sum = 0;
-            for (int iteration = 0; iteration < IterationCount; iteration++)
-            {
-                for (int i = 0; i < N - 1; i++)
-                    sum += a[i];
-                sum += a[N - 1];
-            }
+            for (int i = 0; i < N - 1; i++)
+                sum += a[i];
             return sum;
         }
     }
@@ -54,10 +50,7 @@ namespace CLRium2.Example2_Unrolling
     {
         static void Main()
         {
-            Console.WriteLine("JIT: " + JitVersionInfo.GetJitVersion());
-            BenchmarkSettings.Instance.DetailedMode = true;
-            var competition = new UnrollBenchmarkCompetition();
-            competition.Run();
+            new BenchmarkRunner().RunCompetition(new UnrollBenchmarkCompetition());
         }
     }
 }

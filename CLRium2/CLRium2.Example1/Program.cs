@@ -61,7 +61,7 @@ namespace CLRium2.Example1
         //     IL_0015: ret
         // } // end of method Program::GetLength
 
-        // MSJitX86
+        // LegacyJIT-x86
         //  mov         ebp,esp  
         //  push        eax  
         //  int         3  
@@ -80,7 +80,7 @@ namespace CLRium2.Example1
         //  pop         ebp  
         //  ret         8  
 
-        // MsJitX64
+        // LegacyJIT-x64
         //  sub         ecx,eax  
         //  sub         edx,r9d  
         //  imul        ecx,ecx  
@@ -90,7 +90,7 @@ namespace CLRium2.Example1
         //  sqrtsd      xmm0,xmm0       // (SSE2)
         //  ret  
 
-        // RyuJIT
+        // RyuJIT-x64
         //  mov eax, edx
         //  sub eax, r9d
         //  mov edx, ecx
