@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RdtscApp", "RdtscApp\RdtscApp.csproj", "{18211E56-496E-4C80-9B61-3334D86D5572}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimerRes", "TimerRes\TimerRes.csproj", "{D8CDD52E-5AE0-4DF4-AF73-6F81E5FA6946}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarks", "Benchmarks\Benchmarks.csproj", "{4C018512-7B1F-4E3F-AD90-3B045420C7EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18211E56-496E-4C80-9B61-3334D86D5572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18211E56-496E-4C80-9B61-3334D86D5572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18211E56-496E-4C80-9B61-3334D86D5572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18211E56-496E-4C80-9B61-3334D86D5572}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8CDD52E-5AE0-4DF4-AF73-6F81E5FA6946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8CDD52E-5AE0-4DF4-AF73-6F81E5FA6946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8CDD52E-5AE0-4DF4-AF73-6F81E5FA6946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8CDD52E-5AE0-4DF4-AF73-6F81E5FA6946}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C018512-7B1F-4E3F-AD90-3B045420C7EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C018512-7B1F-4E3F-AD90-3B045420C7EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C018512-7B1F-4E3F-AD90-3B045420C7EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C018512-7B1F-4E3F-AD90-3B045420C7EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
